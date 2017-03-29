@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="10">
+  
+  <Appenders>
+  
+  	<RollingFile name="RollingFile" fileName="d:/logs/phhtest.log"
+             filePattern="d:/logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+	  <PatternLayout>
+	    <pattern>
+	    	-------------START----------------%n%d{HH:mm:ss.SSS} %-5level %logger - %msg%n%ex{full}--------------END-----------------%n%n
+	   </pattern>
+	  </PatternLayout>
+	  <Policies> 
+	  	<SizeBasedTriggeringPolicy size="4 MB"/>
+	  </Policies>
+	</RollingFile>
+	 
+    <!--  
+  	<File name="File" fileName="logs/app.log" bufferedIO="true" >	   
+  		<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+  	</File>
+  	-->
+    
+   	<Console name="Console" target="SYSTEM_OUT" >
+	    <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+	</Console>    
+    
+  </Appenders>
+ 
+  <Loggers>  
+  	<AsyncLogger name="pms-debugger" level="debug" additivity="false">
+      <AppenderRef ref="Console"/>   
+    </AsyncLogger>
+    <asyncRoot  level="error">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="RollingFile" />
+    </asyncRoot>
+  </Loggers>
+  
+</Configuration>
