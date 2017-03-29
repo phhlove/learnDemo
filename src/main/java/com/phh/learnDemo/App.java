@@ -79,10 +79,10 @@ public class App
 //    	aa.put("phh", 123);
 //    	int qty = 3;
 //    	String a = MessageFormat.format("早餐 *{0}" , qty);
-//    	
-    	String a = "A";
-    	char d = a.charAt(0);
-    	int b = d;
-    	System.out.println(Long.parseLong(String.valueOf((int)a.charAt(0))));
+////    	
+//    	String a = "A";
+//    	char d = a.charAt(0);
+//    	int b = d;
+//    	System.out.println(Long.parseLong(String.valueOf((int)a.charAt(0))));
     }
 }
